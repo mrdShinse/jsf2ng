@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="./template/default.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form>
+            <p:panelGrid id="form-container" columns="4" layout="grid">
+                <h:outputText value="Input" />
+                <p:inputText />
+
+                <h:outputText value="Textarea" />
+                <p:inputTextarea rows="6" cols="33" />
+
+                <p:outputLabel for="popup" value="Calendar" />
+                <p:calendar id="popup" value="#{autoCompleteView.date}" />
+
+                <p:outputLabel for="date" value="Mask" />
+                <p:inputMask id="date" value="#{autoCompleteView.date}" mask="99/99/9999"/>
+
+                <h:outputText value="Password" />
+                <p:password id="nonFeedback" value="#{autoCompleteView.password1}" />
+
+                <p:outputLabel for="console" value="OneMenu" />
+                <p:selectOneMenu id="console" value="#{autoCompleteView.console}" style="width:125px">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Radio" />
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:selectOneRadio value="#{autoCompleteView.console}" layout="grid" columns="2">
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                        <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        <f:selectItem itemLabel="Nintendo Switch" itemValue="Nintendo Switch" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+
+                <p:outputLabel value="Checkbox" />
+                <p:selectManyCheckbox id="grid" value="#{autoCompleteView.selectedCities}" layout="grid" columns="2">
+                    <f:selectItems value="#{autoCompleteView.cities}" var="city" itemLabel="#{city}" itemValue="#{city}" />
+                </p:selectManyCheckbox>
+
+                <p:outputLabel value="Button" />
+                <p:commandButton value="Ajax Submit" id="ajax" update="growl" actionListener="#{autoCompleteView.buttonAction}" styleClass="ui-priority-primary" />
+
+                <p:outputLabel value="Dialog" />
+                <p:commandButton value="Basic" type="button" onclick="PF('dlg1').show();" />
+            </p:panelGrid>
+            <p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+                <h:outputText value="Resistance to PrimeFaces is futile!" />
+            </p:dialog>
+            <p:growl id="growl" life="2000" />
+        </h:form>
+    </ui:define>
+
+</ui:composition>

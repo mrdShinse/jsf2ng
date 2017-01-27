@@ -1,0 +1,46 @@
+#top {
+    position: relative;
+    background-color: #ffffff;
+    color: white;
+    margin: 0px 0px 10px 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 75px;
+    z-index: 1;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding-top: 30px;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 75px 20px;
+    height: 1000px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+/* ↑↑Netbeansが作成したスタイル↑↑ */
+
+#header-nav {
+    position: relative;
+    bottom: 0px;
+    background-color: #f0f3f5;
+    margin: 38px 0px;
+}
